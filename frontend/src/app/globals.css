@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+} */
+
+/* @media (prefers-color-scheme: dark) { */
+/* default to dark theme */
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+/* } */
+
+@layer base {
+  @font-face {
+    font-family: "Varuna";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local(""),
+      url("https://fonts.cdnfonts.com/s/107546/varuna-personal-use-only.woff")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Urbanist";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local("Urbanist"),
+      url("https://fonts.cdnfonts.com/s/107254/Urbanist[wght].woff")
+        format("woff");
+  }
+
+  @font-face {
+    font-family: "Reverie";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local(""),
+      url("https://fonts.cdnfonts.com/s/107506/reverie-regular-personal-use-only.woff")
+        format("woff");
+  }
+}
+
+html {
+  font-family: "Urbanist", sans-serif;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.background--custom {
+  background: linear-gradient(130deg, #252525, #00384d, #330026);
+  background-size: 300% 300%;
+  animation: gradient 4s alternate infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.btn {
+  @apply min-h-0 h-auto px-4 py-2 leading-none text-xl;
+}
+
+.link {
+  @apply hover:no-underline;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  background: linear-gradient(
+      to right,
+      rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size:
+    100% 3px,
+    0 3px;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover {
+  background-size:
+    0 3px,
+    100% 3px;
+}

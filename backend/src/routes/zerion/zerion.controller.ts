@@ -33,7 +33,7 @@ export async function fetchZerionPortfolio(req: Request, res: Response) {
     });
   } catch (error) {
     const errorMessage = getErrorMessage(error);
-    logger.error(`Error fetching Zerion portfolio: ${errorMessage}`);
+    console.log(`Error fetching Zerion portfolio: ${errorMessage}`);
     return res.status(500).json({
       status: "nok",
       error: {

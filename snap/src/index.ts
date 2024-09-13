@@ -205,26 +205,20 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
     try {
       await showKnowledgeBaseLoader(id);
       console.log("calling brian with", BRIAN_MIDDLEWARE_BASE_URL, userPrompt);
-
-      const r = await fetch("https://cat-fact.herokuapp.com/facts");
-      const data = await r.json();
-      console.log("cat fact:", data);
-
-
     
-      // const result = await fetch(
-      //   `${BRIAN_MIDDLEWARE_BASE_URL}/brian/knowledge-base`,
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       prompt: userPrompt,
-      //     }),
-      //   }
-      // );
-      // const data = await result.json();
+      const result = await fetch(
+        `${BRIAN_MIDDLEWARE_BASE_URL}/brian/knowledge-base`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: userPrompt,
+          }),
+        }
+      );
+      const data = await result.json();
       console.log("Brian response:", JSON.stringify(data));
       await showKnowledgeBaseResult(id, data.data);
     } catch (error) {

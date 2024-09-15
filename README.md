@@ -1,10 +1,51 @@
-# metaai-snap-and-frontend
+# CrossFi Defi Intents
 
 
-* nft brianknows og
-  * [linea sepolia nft contract](https://sepolia.lineascan.build/address/0x0d677fd109a1be0f32028c43aea4a1481a015402) [blockscout](https://explorer.sepolia.linea.build/address/0x0d677fd109A1Be0f32028C43aEA4a1481a015402) 0x0d677fd109a1be0f32028c43aea4a1481a015402
-  * [linea mainnet nft contract](https://lineascan.build/address/0xe9c31ab9a6dbd39aad1bd82d3713084742e38197) [blockscout](https://explorer.linea.build/address/0xe9c31ab9a6dbd39aad1bd82d3713084742e38197) 0xe9c31ab9a6dbd39aad1bd82d3713084742e38197
-  * [sepolia nft contract](https://eth-sepolia.blockscout.com/address/0xF18CB4b1D2E18F8F2734574D6528eE778A9d499C) 0xF18CB4b1D2E18F8F2734574D6528eE778A9d499
+<br>
+<br>
 
-* PancakeSwap hook Pool contract with this sepolia contract
-  * [Sepolia contract](https://eth-sepolia.blockscout.com/address/0xe63aF1f997a808ace3E02059b870D64Fa33fFF9d?tab=contract) 0xe63aF1f997a808ace3E02059b870D64Fa33fFF9d
+* Stake on xFi Straight from XFi Wallet 
+
+* Cross-Chain Swaps
+
+* It Protects your crypto. This Snap supports transaction simulation and automated approval revoking reminders for the user. Stop guessing about your transactions when performing swaps, claims, and mints!
+
+<br clear="all">
+
+## Features
+
+### Transaction insights
+
+Get advanced insights on your transactions, including built-in security measures. Our transaction insights are powered by the same security engine that keeps
+our.
+
+Note- At this time signatures are not yet supported by MetaMask Snaps, only transactions. We will add this feature immediately once it is supported!
+
+
+
+### Automated security notifications
+
+Get notifications about revoking your assets, directly in MetaMask. This feature is optional.
+
+Automated approval revoking is setup from `dashboard.walletguard.app` by connecting your wallet or inputting your wallet address, no signature necessary.
+
+
+## Permissions
+
+This Snap requires several permissions in order to access the necessary APIs for functionality. To view the entire list of permissions, view the [manifest.json.](https://github.com/kamalbuilds/xfi-wallet/blob/main/packages/snap/snap.manifest.json)
+
+## Demo Video
+
+
+## Monorepo
+
+This is a monorepo that contains 2 applications, listed under `projects`.
+
+1. Site - used for local installation / development / testing
+2. Snap - deployed to [NPM](https://www.npmjs.com/package/xfi-snapp)
+
+## Usage
+
+Running both projects is only necessary for development purposes. Running `yarn` and `yarn start` is how you run both.
+
+For more information about installation and testing of the snap, visit the [Snap package Installation Guide](https://github.com/kamalbuilds/xfi-wallet/tree/main/packages/snap#installation-guide)

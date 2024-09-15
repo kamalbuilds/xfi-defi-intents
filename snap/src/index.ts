@@ -161,6 +161,8 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
           }),
         }
       );
+
+      
       const data = await result.json();
       if (data.status !== "ok") {
         console.error("Brian error:", data);
@@ -178,7 +180,7 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
         data.data.data.description
       );
     } catch (error) {
-      console.error("Brian error:", error);
+      console.log("Brian error:", error);
       await showErrorResult(id, "Generic Transaction error");
     }
   }

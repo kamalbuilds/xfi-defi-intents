@@ -32,13 +32,15 @@ export const getTransactionById = async (transactionId: string) => {
 
 // saveTransaction
 export const saveTransaction = async (transaction: Transaction) => {
-  const result = prisma.transaction.create({
+  const result = await prisma.transaction.create({
     data: {
       id: transaction.id,
       fromAddress: transaction.fromAddress,
       metadata: transaction.metadata as Prisma.JsonObject,
     },
   });
+
+  console.log(result, "result");
   logger.info(`Save Transaction: ${transaction.id}`);
   return result;
 };

@@ -38,7 +38,7 @@ export async function fetchTransactionFromPrompt(req: Request, res: Response) {
   try {
     const { data } = await axios.request(options);
     // save transaction to db
-    console.log("RAW data from Brian", JSON.stringify(data, null, 2));
+    // console.log("RAW data from Brian", JSON.stringify(data, null, 2));
 
     const newTransaction: Transaction = {
       id: uuid(),
@@ -46,7 +46,12 @@ export async function fetchTransactionFromPrompt(req: Request, res: Response) {
       fromAddress: address,
       txHash: null,
     };
-    await saveTransaction(newTransaction);
+
+    console.log(newTransaction,"new txn");
+
+    const saveit = await saveTransaction(newTransaction);
+
+    console.log(saveit,"saved");
 
     return res.status(200).json({
       status: "ok",

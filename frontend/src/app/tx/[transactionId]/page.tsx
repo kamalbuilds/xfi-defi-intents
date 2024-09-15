@@ -76,6 +76,8 @@ export default function Tx() {
     const data = await axios
       .get(`/api/tx/${transactionId}`)
       .then((res) => res.data);
+
+      console.log("data >>>", data);
     const getTxResult: GetTxResult = data.tx.data;
     setTxMetadata(getTxResult.metadata);
   };

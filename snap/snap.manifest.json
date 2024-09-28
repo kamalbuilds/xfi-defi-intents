@@ -1,17 +1,17 @@
 {
-  "version": "0.1.0",
-  "description": "Your Web3 AI assistant inside MetaMask 🦊",
-  "proposedName": "MetaIntents",
+  "version": "0.1.1",
+  "description": "XFi Defi assistant inside MetaMask 🦊",
+  "proposedName": "XFiDefiIntents",
   "repository": {
     "type": "git",
     "url": "https://github.com/kamalbuilds/metaintents.git"
   },
   "source": {
-    "shasum": "wh9aFnFkZcPhUt8RlnJY7HL2MjupQB9cK6uiJJ+Oifw=",
+    "shasum": "VSKCCOylT3tXO/LYby/PLpRoMkW5jd5oH4nLouVBQfI=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "iconPath": "images/logo-circled.svg",
+        "iconPath": "images/xfi-logo-circled.svg",
         "packageName": "@0xkamal7/metaintents",
         "registry": "https://registry.npmjs.org/"
       }

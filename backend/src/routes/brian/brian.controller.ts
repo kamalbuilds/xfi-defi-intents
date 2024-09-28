@@ -4,7 +4,9 @@ import { Request, Response } from "express";
 import { Logger } from "../../logger";
 import { saveTransaction } from "../../db/transaction";
 import { v4 as uuid } from "uuid";
-import { Transaction } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
+type Transaction = PrismaClient["transaction"]["create"]["data"];
 import { getErrorMessage } from "../../lib/utils";
 import web3 from "web3";
 

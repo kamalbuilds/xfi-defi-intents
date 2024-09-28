@@ -67,7 +67,6 @@ export async function createPreTransactionInterface(id: string) {
   });
 }
 
-const BRIAN_MIDDLEWARE_BASE_URL = process.env.BRIAN_MIDDLEWARE_BASE_URL!;
 
 export async function createTransactionInterface(
   id: string,

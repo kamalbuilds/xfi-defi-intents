@@ -1,6 +1,6 @@
 {
   "name": "@0xkamal7/metaintents",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MetaIntents - Executing intents straight from MetaMask 🦊",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
     "prepublishOnly": "mm-snap manifest",
     "serve": "mm-snap serve",
-    "start": "mm-snap watch",
+    "dev": "mm-snap watch",
     "test": "jest"
   },
   "dependencies": {

@@ -22,12 +22,12 @@ export async function createMenuInterface(): Promise<string> {
     method: "snap_createInterface",
     params: {
       ui: panel([
-        heading(" Gm, I'm your AIAgent ! Ask me anything about XFi?"),
+        heading(" Gm, I'm your XFi Defi Agent ! Ask me anything about XFi?"),
         text(
-          "I'm your **CrossFi assistant** straight inside Metamask. Ask me for a transaction you want to perform or for information!"
+          "I'm your **CrossFi Defi assistant** straight inside Metamask. Ask me for a transaction you want to perform or for information!"
         ),
         text(
-          "**Stop wasting time** looking for the right Dapp or for CrossFi information. Just Ask me!"
+          "**Stop wasting time** looking for the defi apps for doing txns or for CrossFi information. Just Ask me!"
         ),
         text("Choose one of the following options:"),
         button({ value: "Transaction", name: "transaction" }),
@@ -38,7 +38,7 @@ export async function createMenuInterface(): Promise<string> {
         }),
         divider(),
         text(
-          "(if you find any bugs, please report them to [Kamal](https://x.com/0xkamal7) 🤯)"
+          "(if you find any bugs, please report them to [Kamal](https://x.com/0xkamal7) 🤠)"
         ),
         text("Powered by CrossFinance , BrianAI 🧠"),
       ]),
@@ -158,9 +158,9 @@ export async function showTransactionGenerationLoader(id: string) {
     params: {
       id,
       ui: panel([
-        heading("Generating a new transaction... 🧠"),
+        heading("Generating your transaction... 🧠"),
         text(
-          "Please wait. This should only take a few seconds. I'm thinking..."
+          "Please wait. This should only takes a few seconds. I'm cooking 🧑🏻‍🍳🧑🏻‍🍳..."
         ),
         spinner(),
       ]),
@@ -202,7 +202,7 @@ export async function showKnowledgeBaseResult(
     params: {
       id,
       ui: panel([
-        heading("Here is what I found! 🤖"),
+        heading("Dear User, here is what I found! 🦊"),
         text(result.answer || "I couldn't find an answer to your question."),
         divider(),
         heading("Source Documents:"),

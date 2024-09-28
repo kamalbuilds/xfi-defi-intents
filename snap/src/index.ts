@@ -225,7 +225,7 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
       await showKnowledgeBaseResult(id, data.data);
     } catch (error) {
       console.error("Brian error:", error);
-      await showErrorResult(id, "uhoh we got error");
+      await showErrorResult(id, "ah oh we got error");
     }
   }
 };

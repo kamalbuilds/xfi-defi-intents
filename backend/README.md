@@ -1,4 +1,7 @@
-# Brian snap middleware to manage the snap requests
+# A middleware to manage the Snap transaction requests
+
+
+`npx prisma generate` - for generating the prisma client
 
 The technologies used in this project are:
 

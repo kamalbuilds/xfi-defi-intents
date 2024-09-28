@@ -5,9 +5,13 @@ import {
   OnHomePageHandler,
   OnRpcRequestHandler,
   OnUserInputHandler,
+  OnTransactionHandler,
+  heading,
+  SeverityLevel,
+  row,
+  address,
 } from "@metamask/snaps-sdk";
-
-
+import { hasProperty } from '@metamask/utils';
 import {
   createKnowledgeBaseInterface,
   createMenuInterface,
@@ -19,6 +23,8 @@ import {
   showTransactionGenerationLoader,
   showTransactionResult,
 } from "./ui";
+import { decodeData } from "./utils";
+
 
 const BRIAN_MIDDLEWARE_BASE_URL = process.env.BRIAN_MIDDLEWARE_BASE_URL!;
 const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL!;
@@ -56,6 +62,51 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
       throw new Error("Method not found.");
   }
 };
+
+
+export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+  const contractAddress = transaction.to.toLowerCase();
+
+  console.log(contractAddress,"contrac")
+
+  const SECURE_CONTRACTS = [
+    "0x28cc5edd54b1e4565317c3e0cfab551926a4cd2a",
+    "0x63214cb45714b55e17bc58dd879bdd62ee1b024b",
+    // Add more secure contract addresses here
+  ];
+
+  if (SECURE_CONTRACTS.includes(contractAddress)) {
+
+    return {
+      content: panel([
+        heading("Your Transaction Insights"),
+        text("This is a secure contract address."),
+      ]),
+
+    };
+  } else if (
+    hasProperty(transaction, 'data') &&
+    typeof transaction.data === 'string'
+  ) {
+    const type = decodeData(transaction.data);
+    return {
+      content: panel([
+        row('From', address(transaction.from)),
+        row('To', transaction.to ? address(transaction.to) : text('None')),
+        row('Transaction type', text(type)),
+      ]),
+      severity: SeverityLevel.Critical,
+    };
+  } else {
+    return {
+      content: panel([
+        heading(`Your Transaction Insights ${contractAddress}`),
+        text("Warning: You are interacting with an unverified contract address."),
+      ]),
+      severity: SeverityLevel.Critical,
+    };
+
+}};
 
 export const onHomePage: OnHomePageHandler = async () => {
   const interfaceId = await createMenuInterface();

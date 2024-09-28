@@ -7,11 +7,11 @@
     "url": "https://github.com/kamalbuilds/metaintents.git"
   },
   "source": {
-    "shasum": "MLGL85/rL4VcmzWJcjj2WXXWXF0m5Ipg8eDavyVXeCU=",
+    "shasum": "s5Axwuo1LjzTuNJyLCqPAE16Bj+3IUSEIEypwSGIq30=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "iconPath": "images/xfi-logo-circled.svg",
+        "iconPath": "images/xfi-logo.svg",
         "packageName": "@0xkamal7/metaintents",
         "registry": "https://registry.npmjs.org/"
       }

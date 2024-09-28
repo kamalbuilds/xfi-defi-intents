@@ -3,5 +3,4 @@
     <defs>
         <image width="64" height="64" id="img1" xlink:href="https://raw.githubusercontent.com/kamalbuilds/xfi-defi-intents/master/frontend/public/images/crossfi.png"/>
     </defs>
-    <use id="Background" xlink:href="#img1" x="0" y="0"/>
 </svg>

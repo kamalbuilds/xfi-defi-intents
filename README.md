@@ -26,7 +26,7 @@ CrossFi DeFi Intents addresses these challenges by providing a single, user-frie
    - Easily set up automated approval revocation alerts through the CrossFi dashboard without needing a signature.
 
 ### 4. **Native Coin Support**
-   - Supports CrossFi (XFI), a utility coin that facilitates access to all dApps, products, and services on the CrossFi Chain, and Mint Power (MPX), a governance coin used for staking and fee payments within the ecosystem【24†source】【25†source】.
+   - Supports CrossFi (XFI), a utility coin that facilitates access to all dApps, products, and services on the CrossFi Chain, and Mint Power (MPX), a governance coin used for staking and fee payments within the ecosystem.
 
 ### 5. **Integrated Protection and Simulations**
    - Integrated transaction simulations and automated approval revoking notifications protect users from potential scams and unauthorized actions. This feature enhances user confidence in conducting DeFi transactions on the CrossFi Chain.
@@ -35,7 +35,7 @@ CrossFi DeFi Intents addresses these challenges by providing a single, user-frie
 CrossFi Chain is a Layer 1 blockchain that combines the scalability of Cosmos with the smart contract capabilities of EVM. This unique modular architecture allows for a secure, efficient, and interoperable DeFi ecosystem.
 
 - **Cosmos Module**: Handles consensus, block production, and transaction creation with a focus on speed and security using Tendermint and Cosmos SDK.
-- **EVM Module**: Provides full compatibility with Ethereum, allowing for seamless deployment and interaction with smart contracts. Built with Ethermint and Evmos, this module ensures that CrossFi remains a robust and developer-friendly platform【26†source】.
+- **EVM Module**: Provides full compatibility with Ethereum, allowing for seamless deployment and interaction with smart contracts. Built with Ethermint and Evmos, this module ensures that CrossFi remains a robust and developer-friendly platform.
 
 ## Permissions  
 CrossFi DeFi Intents requires permissions to access necessary APIs for its functionality. To view the complete list of permissions, refer to the [manifest.json](https://github.com/kamalbuilds/xfi-wallet/blob/main/packages/snap/snap.manifest.json).

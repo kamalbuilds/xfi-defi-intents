@@ -13,3 +13,12 @@ model Transaction {
     fromAddress String
     txHash      String?
 }
+
+model StakingTransaction {
+    id          String  @id @default(cuid())
+    metadata    Json
+    fromAddress String
+    toAddress   String
+    amount      String
+    txHash      String?
+}

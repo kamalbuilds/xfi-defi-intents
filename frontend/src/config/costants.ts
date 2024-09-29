@@ -21,6 +21,27 @@ import {
   lineaSepolia,
 } from "wagmi/chains";
 
+const crossfi = {
+  id: 4157,
+  name: 'CrossFi',
+  nativeCurrency: { name: 'XFI', symbol: 'XFI', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.testnet.ms'] },
+  },
+  blockExplorers: {
+    default: { name: 'Etherscan', url: 'https://test.xfiscan.com/' },
+  },
+  contracts: {
+    ensRegistry: {
+      address: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+    },
+    ensUniversalResolver: {
+      address: '0xE4Acdd618deED4e6d2f03b9bf62dc6118FC9A4da',
+      blockCreated: 16773775,
+    },
+  },
+} as const satisfies Chain
+
 let customMainnet: Chain = {
   ...mainnet,
   blockExplorers: {
@@ -161,6 +182,7 @@ const chains = [
   goerli,
   customHolesky,
   customLineaSepolia,
+  crossfi
 ] as const;
 
 export const getChainById = (id: number | undefined) => {
@@ -214,6 +236,7 @@ export const logos: { [key: number]: string } = {
     "https://assets.coingecko.com/asset_platforms/images/279/standard/ethereum.png",
   [customLineaSepolia.id]:
     "https://assets.coingecko.com/asset_platforms/images/135/standard/linea.jpeg",
+  [crossfi.id] : "https://assets.coingecko.com/coins/images/31913/standard/Token-Icon-Stylization-round-bg-XFI.png?1717686175"
 };
 
 export { chains };

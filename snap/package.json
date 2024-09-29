@@ -30,7 +30,8 @@
   "dependencies": {
     "@metamask/snaps-sdk": "^4.0.1",
     "buffer": "^6.0.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "ethers": "^5.7.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",

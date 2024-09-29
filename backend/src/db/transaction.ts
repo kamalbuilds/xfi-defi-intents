@@ -32,17 +32,23 @@ export const getTransactionById = async (transactionId: string) => {
 
 // saveTransaction
 export const saveTransaction = async (transaction: Transaction) => {
-  const result = await prisma.transaction.create({
-    data: {
-      id: transaction.id,
-      fromAddress: transaction.fromAddress,
-      metadata: transaction.metadata as Prisma.JsonObject,
-    },
-  });
+  try {
 
-  console.log(result, "result");
-  logger.info(`Save Transaction: ${transaction.id}`);
-  return result;
+    console.log(transaction.metadata,"metadata");
+    const result = await prisma.transaction.create({
+      data: {
+        id: transaction.id,
+        fromAddress: transaction.fromAddress,
+        metadata: {}, // Ensure metadata is in the correct format
+      },
+    });
+
+    logger.log(result.fromAddress);
+      logger.info(`Save Transaction: ${transaction.id}`);
+      return result;
+  } catch (error) {
+    logger.error(`Error saving transaction: ${error}`);
+  }
 };
 
 // updateTransaction with txHash

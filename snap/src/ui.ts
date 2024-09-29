@@ -9,6 +9,7 @@ import {
   divider,
   spinner,
   row,
+  NodeType,
 } from "@metamask/snaps-sdk";
 
 /**
@@ -34,6 +35,11 @@ export async function createMenuInterface(): Promise<string> {
         button({
           value: "Ask about CrossFi",
           name: "knowledge-base",
+          variant: "secondary",
+        }),
+        button({
+          value: "Stake Tokens",
+          name: "staking",
           variant: "secondary",
         }),
         divider(),
@@ -123,6 +129,42 @@ function roundTokenAmount(amount: string) {
   return amount;
 }
 
+
+export async function createStakingInterface(id: string) {
+  await snap.request({
+    method: "snap_updateInterface",
+    params: {
+      id,
+      ui: panel([
+        heading("Stake Your Tokens"),
+        form({
+          name: "staking-form",
+          children: [
+            input ({
+              label: "Amount",
+              name: "amount",
+              placeholder: "0.0",
+              inputType: "number",
+            }),
+            input({
+              label: "Token",
+              name: "token",
+              placeholder: "lPXFI",
+            }),
+            button({
+              value: "Stake",
+              buttonType: "submit",
+            }),
+          ],
+          
+        }),
+      ]),
+    },
+  });
+}
+
+
+
 export async function createKnowledgeBaseInterface(id: string) {
   await snap.request({
     method: "snap_updateInterface",
@@ -131,7 +173,7 @@ export async function createKnowledgeBaseInterface(id: string) {
       ui: panel([
         heading("What do you want to know? 🔮"),
         text(
-          "There are no stupid questions. Ask me anything about Ethereum, DeFi, NFTs, or anything else!"
+          "Ask me anything about CrossFi , Ethereum, DeFi on CrossFi, NFTs, or anything else!"
         ),
         form({
           name: "knowledge-base-form",
@@ -232,7 +274,7 @@ export async function showTransactionResult(
         text(description),
         divider(),
         text("Please click the button below to proceed."),
-        text(`[Fire Transaction 🔥](${link})`),
+        text(`[Launch Transaction 🚀](${link})`),
       ]),
     },
   });

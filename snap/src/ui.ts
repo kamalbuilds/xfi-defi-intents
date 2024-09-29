@@ -58,7 +58,7 @@ export async function createPreTransactionInterface(id: string) {
     params: {
       id,
       ui: panel([
-        heading("Hey mate, do this before continue 😅"),
+        heading("Hey user, please do this before continuing 😅"),
         text(
           "Before proceeding with the **transaction** feature, please **connect your wallet**, so I know who is performing transactions."
         ),

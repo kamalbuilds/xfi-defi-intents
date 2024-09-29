@@ -156,7 +156,7 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
         break;
 
       case "knowledge-base":
-        console.log("Knowledge base clicked 🟡");
+        console.log("Knowledge base clicked , use the crossfi kb to respond to the user");
         await createKnowledgeBaseInterface(id);
         break;
 
@@ -188,10 +188,38 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
       value: "0x0" // Assuming no ETH is required to be sent
     };
 
-    
-    // Redirect to frontend for signing and sending the transaction
-    const txUrl = `${FRONTEND_BASE_URL}/tx/${transaction}`;
+    console.log(transaction, "transaction");
+
+    const txUrl = `https://a2a5-103-16-29-116.ngrok-free.app/crossfi/sddsaf5a7-7ae8-47ba-b50c-assdsadsad`;
     await showTransactionResult(id, txUrl, "Click the link to complete the staking transaction.");
+    // here I am trying to store the txn to db
+  //   try {
+  //     // const response = await fetch(`${BRIAN_MIDDLEWARE_BASE_URL}/brian/staking`, {
+  //     //     method: 'POST',
+  //     //     headers: {
+  //     //         'Content-Type': 'application/json',
+  //     //     },
+  //     //     body: JSON.stringify({
+  //     //         prompt: `Stake ${amount} ${token}`,
+  //     //         address: (await ethereum.request({ method: 'eth_requestAccounts' }))[0],
+  //     //         transaction
+  //     //     })
+  //     // });
+
+  //     // const result = await response.json();
+  //     // console.log(result, "result");
+  //     const txUrl = `${FRONTEND_BASE_URL}/crossfi/febaf5a7-7ae8-47ba-b50c-fa2d3f7e1055`;
+  //     await showTransactionResult(id, txUrl, "Click the link to complete the staking transaction.");
+  //     // if (true) {
+  //     //     const txUrl = `${FRONTEND_BASE_URL}/crossfi/febaf5a7-7ae8-47ba-b50c-fa2d3f7e1055`;
+  //     //     await showTransactionResult(id, txUrl, "Click the link to complete the staking transaction.");
+  //     // } else {
+  //     //     await showErrorResult(id, "Failed to create transaction");
+  //     // }
+  // } catch (error) {
+  //   console.error("Error connecting to backend:", error);
+  //     await showErrorResult(id, "Error connecting to backend");
+  // }
   }
 
   if (
@@ -234,51 +262,56 @@ export const onUserInput: OnUserInputHandler = async ({ id, event }) => {
       return;
     }
 
+    const txUrl = `https://a2a5-103-16-29-116.ngrok-free.app/crossfi/sddsaf5a7-7ae8-47ba-b50c-assdsadsad`;
+    await showTransactionResult(id, txUrl, "Click the link to complete your transaction.");
+
     // brian call
-    try {
-      await showTransactionGenerationLoader(id);
-      console.log("calling brian with", BRIAN_MIDDLEWARE_BASE_URL, userPrompt);
+    // try {
+    //   await showTransactionGenerationLoader(id);
+    //   console.log("calling brian with", BRIAN_MIDDLEWARE_BASE_URL, userPrompt);
 
-      const accounts = (await ethereum.request({
-        method: "eth_requestAccounts",
-      })) as string[];
+    //   const accounts = (await ethereum.request({
+    //     method: "eth_requestAccounts",
+    //   })) as string[];
 
-      console.log("🟢 Accounts:", accounts);
-      const result = await fetch(
-        `${BRIAN_MIDDLEWARE_BASE_URL}/brian/transaction`,
-        {
-          method: "POST", 
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: userPrompt,
-            address: accounts[0],
-          }),
-        }
-      );
+    //   console.log("🟢 Accounts:", accounts);
+    //   const result = await fetch(
+    //     `${BRIAN_MIDDLEWARE_BASE_URL}/brian/transaction`,
+    //     {
+    //       method: "POST", 
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         prompt: userPrompt,
+    //         address: accounts[0],
+    //       }),
+    //     }
+    //   );
 
       
-      const data = await result.json();
-      if (data.status !== "ok") {
-        console.error("Brian error:", data);
-        await showErrorResult(id, data.error.message);
-        return;
-      }
-      console.log("Brian response:", JSON.stringify(data));
-      console.log(
-        "URL for SUBMITTING THE TX:",
-        `${FRONTEND_BASE_URL}/tx/${data.id}`
-      );
-      await showTransactionResult(
-        id,
-        `${FRONTEND_BASE_URL}/tx/${data.id}`,
-        data.data.data.description
-      );
-    } catch (error) {
-      console.log("Brian error:", error);
-      await showErrorResult(id, "Generic Transaction error");
-    }
+    //   const data = await result.json();
+    //   if (data.status !== "ok") {
+    //     console.error("Brian error:", data);
+    //     await showErrorResult(id, data.error.message);
+    //     return;
+    //   }
+    //   console.log("Brian response:", JSON.stringify(data));
+    //   console.log(
+    //     "URL for SUBMITTING THE TX:",
+    //     `${FRONTEND_BASE_URL}/tx/${data.id}`
+    //   );
+
+
+    //   await showTransactionResult(
+    //     id,
+    //     `${FRONTEND_BASE_URL}/tx/${data.id}`,
+    //     data.data.data.description
+    //   );
+    // } catch (error) {
+    //   console.log("Brian error:", error);
+    //   await showErrorResult(id, "Generic Transaction error");
+    // }
   }
 
   /** Handle Knowledge Base Form */

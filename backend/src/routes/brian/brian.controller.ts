@@ -2,7 +2,7 @@ import axios, { Axios, AxiosError } from "axios";
 import { env } from "../../env";
 import { Request, Response } from "express";
 import { Logger } from "../../logger";
-import { saveTransaction } from "../../db/transaction";
+import { saveStakingTransaction, saveTransaction } from "../../db/transaction";
 import { v4 as uuid } from "uuid";
 import { PrismaClient } from "@prisma/client";
 import { Transaction , StakingTransaction} from "@prisma/client";
@@ -97,7 +97,7 @@ export async function storeStakingTransaction(req: Request, res: Response) {
   };
 
   try {
-    const savedTransaction = await saveTransaction(newStakingTransaction);
+    const savedTransaction = await saveStakingTransaction(newStakingTransaction);
     logger.log(`Staking Transaction saved: ${JSON.stringify(savedTransaction)}`);
     res.status(200).json({
       status: "ok",

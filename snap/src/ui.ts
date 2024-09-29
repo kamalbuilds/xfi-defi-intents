@@ -181,7 +181,7 @@ export async function createKnowledgeBaseInterface(id: string) {
             input({
               label: "Prompt",
               name: "user-prompt",
-              placeholder: "What is UniSwap?",
+              placeholder: "What is XFI?",
             }),
             button({
               value: "Ask",

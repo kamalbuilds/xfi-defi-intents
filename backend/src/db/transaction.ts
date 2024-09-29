@@ -1,6 +1,7 @@
 import { prisma } from ".";
 import { Prisma, Transaction } from "@prisma/client";
 import { Logger } from "../logger";
+import { v4 as uuid } from "uuid";
 
 const logger = new Logger("prisma-transaction");
 
@@ -37,9 +38,32 @@ export const saveTransaction = async (transaction: Transaction) => {
     console.log(transaction.metadata,"metadata");
     const result = await prisma.transaction.create({
       data: {
-        id: transaction.id,
+        id: uuid(),
         fromAddress: transaction.fromAddress,
         metadata: {}, // Ensure metadata is in the correct format
+      },
+    });
+
+    logger.log(result.fromAddress);
+      logger.info(`Save Transaction: ${transaction.id}`);
+      return result;
+  } catch (error) {
+    logger.error(`Error saving transaction: ${error}`);
+  }
+};
+
+
+export const saveStakingTransaction = async (transaction: Transaction) => {
+  try {
+
+    console.log(transaction.metadata,"metadata");
+
+    console.log(uuid().toString(),"uuid", uuid());
+    const result = await prisma.transaction.create({
+      data: {
+        id: uuid().toString(),
+        fromAddress: "0xA339276DcF328B77Be4d559658537342b5A0663b",
+        metadata: {},
       },
     });
 

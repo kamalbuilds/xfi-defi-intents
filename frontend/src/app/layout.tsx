@@ -8,7 +8,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "MetaIntents",
+  title: "CrossFiIntents",
   description: "Executing Intents straight from your wallet",
 };
 

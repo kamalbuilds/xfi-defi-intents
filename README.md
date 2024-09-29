@@ -43,6 +43,42 @@ CrossFi DeFi Intents requires permissions to access necessary APIs for its funct
 ## Demo Video  
 Watch CrossFi DeFi Intents in action and see how it revolutionizes DeFi interactions: [Watch the demo](#).
 
+### Please Note that Before this project : 
+
+1. The knowledge base of brian had no clue of crossfi chain and its docs , so i had to train it from scratch on the xfi documentation and the xfi data available in the internet like the blog , XUSD docs , crossfi docs , github repos , medium blogs and the crossfi website.
+
+2. The data extraction from the website was a bit challenging but we managed to scrape the data using scraping libraries and then stored it in a vector database ( by creating the "crossfi" KB ) for easy retrieval and querying.
+
+The docs on which we trained brian were : 
+1. https://docs.crossfi.org/
+2.  https://github.com/crossfichain/docs
+3. https://github.com/crossfichain/XUSD
+4. https://medium.com/@crossfichain
+5. https://www.crossfi.org
+
+3. The prompt engineering was a crucial part of our implementation. We developed a system that extracts key parameters from user prompts, such as action type (swap, stake), token names, and amounts. These extracted parameters are then used to construct the appropriate transaction data. This approach allows us to handle a wide range of DeFi actions using natural language inputs.
+
+4. The transaction simulation was a bit challenging since i had to parse the data 
+and then pass it to the snapp for security purposes. I made a custom function for 
+this purpose to store the verified contracts and then used it in the simulation 
+process.
+
+5. Brian does not support the CrossFi chain natively, so we implemented custom functions to handle CrossFi-specific transactions. Instead of using solvers, we built a system that:
+
+a) Uses parameter extraction to understand the user's intent from the prompt.
+b) Constructs transactions manually based on the extracted parameters.
+c) Handles special cases like wrapping/unwrapping XFI and wXFI.
+d) Supports staking for different tokens (lpMPX, lpXFI, lpUSD) with their respective contract addresses.
+e) Builds swap transactions using the appropriate contract addresses and function selectors.
+
+For example, a staking transaction for lpXFI tokens would be constructed as follows:
+- Contract Address: 0x8D1dd64aC4306274585ad0BE302283A8D40a8383
+- Function Selector: 0xa694fc3a (for "stake(uint256)")
+- Data: Encoded amount to stake
+
+This custom implementation allows us to create CrossFi-compatible transactions without relying on external solvers, ensuring full control over the transaction building process and enabling seamless integration with the CrossFi ecosystem.
+
+
 ## Monorepo Structure
 
 This project consists of two main applications:

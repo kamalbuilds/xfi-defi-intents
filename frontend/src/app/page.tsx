@@ -13,7 +13,7 @@ export default function Home() {
         <div className="flex gap-4">
           <h2 className="text-6xl font-['Reverie'] mr-[4.75rem]">
             Execute <span className="font-black underline">Defi</span> actions on CrossFi
-            with your prompts.
+            with just your prompts.
           </h2>
           <Star />
         </div>

@@ -41,7 +41,7 @@ CrossFi Chain is a Layer 1 blockchain that combines the scalability of Cosmos wi
 CrossFi DeFi Intents requires permissions to access necessary APIs for its functionality. To view the complete list of permissions, refer to the [manifest.json](https://github.com/kamalbuilds/xfi-wallet/blob/main/packages/snap/snap.manifest.json).
 
 ## Demo Video  
-Watch CrossFi DeFi Intents in action and see how it revolutionizes DeFi interactions: [Watch the demo](#).
+Watch CrossFi DeFi Intents in action and see how it revolutionizes DeFi interactions: [Watch the demo](https://www.youtube.com/watch?v=JkAFMJr73Jw).
 
 ### Please Note that Before this project : 
 
